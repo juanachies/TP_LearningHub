@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Hub</title>
+    <link rel="stylesheet" href="/static/css/0204.comunidad.css"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="titulo">
+            <img class="logo" src="/static/img/libros.png" alt="logo">
+            <h1>Learning Hub</h1>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="0101.index.html">Inicio</a></li>
+                <li><a href="0102.informacion.html">Información</a></li>
+                <li><a href="0103.descarga.html">Descargar</a></li>
+                <li><a href="0104.comunidad.html">Comunidad</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+            <div class="contenedor-cerebro" onclick="abrirWhatsapp()">
+                <div class="mensaje-ayuda">
+                <i class="fa-brands fa-whatsapp"></i> ¿Necesitás ayuda?
+            </div>
+                <img src="/static/img/cerebro.png" alt="Imagen de un cerebro animado" class="imagencerebro">
+            </div>
+
+        <h1>Comunidad</h1>
+
+<section class="formulario-comunidad">
+  <h2>¡Compartí tus apuntes con la comunidad!</h2>
+  <form id="formulario" action="#" method="POST" enctype="multipart/form-data" novalidate>
+    
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email" placeholder="ejemplo@mail.com" required>
+
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefono" name="telefono" placeholder="3412345678" pattern="[0-9]{10}" required>
+
+    <label for="carrera">Carrera:</label>
+    <select id="carrera" name="carrera" required>
+      <option value="">Seleccioná una opción</option>
+      <option value="ingenieria">Programacion</option>
+      <option value="sistemas">Sistemas</option>
+      <option value="mecanica">Mecánica</option>
+    </select>
+
+    <label for="archivo">Subí tu apunte (PDF):</label>
+    <input type="file" id="archivo" name="archivo" accept=".pdf" required>
+
+    <label for="comentario">Comentario:</label>
+    <textarea id="comentario" name="comentario" rows="4" placeholder="Opcional..."></textarea>
+
+    <!-- Checkbox con estilo switch -->
+    <div class="checkbox-container">
+      <label class="switch">
+        <input type="checkbox" id="acepta" name="acepta" required>
+        <span class="slider round"></span>
+      </label>
+      <label for="acepta" class="texto-checkbox">Acepto compartir el material públicamente</label>
+    </div>
+
+    <div id="feedback" class="mensaje-form"></div>
+
+    <button type="submit">Enviar</button>
+  </form>
+</section>
+
+
+
+    </main>
+
+    <footer>
+        <section class="footer">
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3347.867662016196!2d-60.64381900000001!3d-32.9545032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab11d0eb49c3%3A0x11f1d3d54f950dd0!2sUniversidad%20Tecnol%C3%B3gica%20Nacional%20%7C%20Facultad%20Regional%20Rosario!5e0!3m2!1ses-419!2sar!4v1748489483402!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="quienes">
+                <h5>¿Quienes somos?</h5>
+                <p>
+                    Somos estudiantes de la Universidad Tecnológica Nacional que creamos esta página con un propósito claro: 
+                    ayudar a otros estudiantes. Sabemos lo que se necesita porque estamos en el mismo camino. 
+                    Learning Hub es una plataforma hecha por y para estudiantes, pensada para compartir herramientas, información y comunidad. <br>
+                    Queremos que cada estudiante pueda encontrar recursos útiles, organizarse mejor y sentirse acompañado en su recorrido académico. <br>
+                    Con ayuda todo es más fácil, sumate a nosotros!
+                </p>
+            </div>
+        </section>
+        <p class="copy">&copy; 2025 Comunidad de Estudiantes</p>
+    </footer>
+    <script>
+        function abrirWhatsapp() {
+            const numero = "5493411234567"; // Reemplazá con tu número real
+            const mensaje = "Hola! Estoy navegando en Learning Hub y necesito ayuda 😊";
+            const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+
+<script>
+document.getElementById("formulario").addEventListener("submit", function(event) {
+  let valid = true;
+  const nombre = document.getElementById("nombre");
+  const email = document.getElementById("email");
+  const telefono = document.getElementById("telefono");
+  const carrera = document.getElementById("carrera");
+  const archivo = document.getElementById("archivo");
+  const acepta = document.getElementById("acepta");
+  const feedback = document.getElementById("feedback");
+  
+  feedback.innerHTML = ""; // Limpiar mensajes anteriores
+  feedback.style.color = "red";
+
+  if (nombre.value.trim() === "") {
+    feedback.innerHTML += "⚠️ El nombre es obligatorio.<br>";
+    valid = false;
+  }
+
+  const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+  if (!emailPattern.test(email.value.trim())) {
+    feedback.innerHTML += "⚠️ Ingresá un correo válido.<br>";
+    valid = false;
+  }
+
+  const telPattern = /^[0-9]{10}$/;
+  if (!telPattern.test(telefono.value.trim())) {
+    feedback.innerHTML += "⚠️ El teléfono debe tener 10 números sin espacios.<br>";
+    valid = false;
+  }
+
+  if (carrera.value === "") {
+    feedback.innerHTML += "⚠️ Seleccioná una carrera.<br>";
+    valid = false;
+  }
+
+  if (!archivo.value.endsWith(".pdf")) {
+    feedback.innerHTML += "⚠️ Solo se acepta un archivo PDF.<br>";
+    valid = false;
+  }
+
+  if (!acepta.checked) {
+    feedback.innerHTML += "⚠️ Tenés que aceptar compartir el material.<br>";
+    valid = false;
+  }
+
+  if (!valid) {
+    event.preventDefault(); // Evita que se envíe el formulario
+  } else {
+    feedback.style.color = "green";
+    feedback.innerHTML = "✅ ¡Formulario enviado con éxito!";
+  }
+});
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,280 @@
+*{
+    margin: 0;  
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+:root {
+    --p-color:#D6D6D6;
+    --s-color: #F4D03F; 
+    --t-color:#131c46;
+    --background-color: #f0f3fa; /* Fondo claro */
+    --text-color: #f0f3fa; /* Texto */
+    --rosa-claaro: #C9A86A;
+}
+
+body {
+    overflow-x: hidden; /* Oculta el scroll horizontal */
+}
+
+/* Header --------------------------------------------------------------- */
+header{
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--t-color);
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left:0;
+    z-index: 600;
+}
+
+.titulo{
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    color: #f0f3fa
+}
+
+.titulo p{
+    padding-left: 15px;
+    font-size: 28px;
+}
+
+.logo{
+    width: 40px;
+    padding: 5px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0 50px 0 0;
+}
+
+.navbar li {
+    margin-left: 5px;
+}
+
+.navbar a {
+    box-shadow: inset 0px 0px 15px 3px #23395e;
+    background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+    background-color: #2e466e;
+    border-radius: 19px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 19px;
+    padding: 7px 17px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #263666;
+}
+
+.navbar a:hover {
+    background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+    background-color: #415989;
+}
+
+.navbar a:active {
+    position: relative;
+    top: 1px;
+}
+
+
+/* Main -----------------------------------------------------------------*/
+main{
+    padding: 40px;
+    padding-top: 100px;
+    margin-bottom: 0;
+    background-color: var(--background-color);
+}
+
+/* Cerebro con mensaje flotante ---------------------------------------- */
+.contenedor-cerebro {
+    position: fixed;
+    right: 30px;
+    bottom: 5px;
+    z-index: 1000;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; /* IMPORTANTE */
+    align-items: center;     /* Centra el texto con respecto al cerebro */
+}
+
+.mensaje-ayuda {
+    margin-bottom: -20px; /* Espacio entre mensaje y cerebro */
+    background-color: #25D366;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.imagencerebro {
+    width: 180px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.imagencerebro:hover {
+    transform: scale(1.1);
+}
+
+
+.formulario-comunidad {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 500px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.formulario-comunidad h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #131c46;
+}
+
+.formulario-comunidad label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.formulario-comunidad input,
+.formulario-comunidad textarea,
+.formulario-comunidad button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.formulario-comunidad button {
+    background-color: #25D366;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.formulario-comunidad button:hover {
+    background-color: #131c46;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.texto-checkbox {
+  margin-left: 10px;
+  font-size: 0.95rem;
+}
+
+/* Switch personalizado */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #131c46;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+
+
+/*footer--------------------------------------------------------------------*/
+footer{
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 20px;
+    background-color: var(--t-color);
+    color: white;
+    padding-right: 100px;
+    padding-left: 100px;
+    text-align: center;
+}
+
+.footer{
+    display: flex;
+}
+
+.quienes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; 
+    margin-left: 30px;
+    height: 250px;
+    text-align: left;
+}
+
+.copy{
+    margin: 40px;
+    margin-bottom: 0px;
+}
+    
+.map{
+    display: flex;
+    align-items:initial;
+    width: 300px;
+    height: 250px;
+}
