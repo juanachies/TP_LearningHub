@@ -39,7 +39,7 @@
 
 <section class="formulario-comunidad">
   <h2>¡Compartí tus apuntes con la comunidad!</h2>
-  <form id="formulario" action="#" method="POST" enctype="multipart/form-data" novalidate>
+  <form id="formulario" action="{{ url_for('comunidad') }}" method="POST" enctype="multipart/form-data">
     
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
