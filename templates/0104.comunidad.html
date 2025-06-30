@@ -39,7 +39,7 @@
 
 <section class="formulario-comunidad">
   <h2>¡Compartí tus apuntes con la comunidad!</h2>
-  <form id="formulario" action="{{ url_for('comunidad') }}" method="POST" enctype="multipart/form-data">
+  <form id="formulario" method="POST" action="{{ url_for('comunidad') }}" enctype="multipart/form-data" novalidate>
     
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
@@ -108,61 +108,7 @@
         }
     </script>
 
-<script>
-document.getElementById("formulario").addEventListener("submit", function(event) {
-  let valid = true;
-  const nombre = document.getElementById("nombre");
-  const email = document.getElementById("email");
-  const telefono = document.getElementById("telefono");
-  const carrera = document.getElementById("carrera");
-  const archivo = document.getElementById("archivo");
-  const acepta = document.getElementById("acepta");
-  const feedback = document.getElementById("feedback");
-  
-  feedback.innerHTML = ""; // Limpiar mensajes anteriores
-  feedback.style.color = "red";
-
-  if (nombre.value.trim() === "") {
-    feedback.innerHTML += "⚠️ El nombre es obligatorio.<br>";
-    valid = false;
-  }
-
-  const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-  if (!emailPattern.test(email.value.trim())) {
-    feedback.innerHTML += "⚠️ Ingresá un correo válido.<br>";
-    valid = false;
-  }
-
-  const telPattern = /^[0-9]{10}$/;
-  if (!telPattern.test(telefono.value.trim())) {
-    feedback.innerHTML += "⚠️ El teléfono debe tener 10 números sin espacios.<br>";
-    valid = false;
-  }
-
-  if (carrera.value === "") {
-    feedback.innerHTML += "⚠️ Seleccioná una carrera.<br>";
-    valid = false;
-  }
-
-  if (!archivo.value.endsWith(".pdf")) {
-    feedback.innerHTML += "⚠️ Solo se acepta un archivo PDF.<br>";
-    valid = false;
-  }
-
-  if (!acepta.checked) {
-    feedback.innerHTML += "⚠️ Tenés que aceptar compartir el material.<br>";
-    valid = false;
-  }
-
-  if (!valid) {
-    event.preventDefault(); // Evita que se envíe el formulario
-  } else {
-    feedback.style.color = "green";
-    feedback.innerHTML = "✅ ¡Formulario enviado con éxito!";
-  }
-});
-</script>
-
+<script src="/static/js/comunidad.js"></script>
 
 
 </body>
