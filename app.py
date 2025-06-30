@@ -37,49 +37,57 @@ with app.app_context():
     db.create_all() #creo las tablas
 
 
+# Rutas a los distintos archivos con flask
 
-UPLOAD_FOLDER = 'uploads'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+@app.route('/')
+def index():
+    return render_template('0101.index.html')
+
+@app.route('/informacion')
+def informacion():
+    return render_template('0102.informacion.html')
+
+@app.route('/descargar')
+def descargar():
+    return render_template('0103.descarga.html')
 
 
-@app.route('/comunidad', methods=['GET', 'POST'])
+@app.route('/comunidad', methods =['GET', 'POST'])
 def comunidad():
     if request.method == 'POST':
         nombre = request.form['nombre']
         email = request.form['email']
         telefono = request.form['telefono']
         carrera = request.form['carrera']
-        comentario = request.form.get('comentario', '')
+
         archivo = request.files['archivo']
-
-        if not archivo or not archivo.filename.endswith('.pdf'):
-            return redirect(url_for('comunidad'))
-
         nombre_archivo = archivo.filename
-        ruta_archivo = os.path.join(app.config['UPLOAD_FOLDER'], nombre_archivo)
-        archivo.save(ruta_archivo)
 
-        # Crear usuario (si no existe ese email)
+        comentario = request.form['comentario']
+    
+        archivo.save(f'uploads/{nombre_archivo}')
+    
+        #Creo usuario y apunte
         usuario = Usuario.query.filter_by(email=email).first()
         if not usuario:
-            usuario = Usuario(nombre_completo=nombre, email=email, telefono=telefono)
+            usuario = Usuario(
+                nombre_completo = nombre,
+                email = email,
+                telefono = telefono
+            )
             db.session.add(usuario)
             db.session.commit()
 
-        # Crear apunte
-        nuevo_apunte = Apunte(
-            id_usuario=usuario.id,
-            carrera=carrera,
-            apunte=nombre_archivo,
-            comentario=comentario
+        apunte = Apunte(
+            id_usuario = usuario.id,
+            carrera = carrera,
+            apunte = nombre_archivo,
+            comentario = comentario
         )
-        db.session.add(nuevo_apunte)
+        db.session.add(apunte)
         db.session.commit()
 
-        return redirect(url_for('comunidad'))
-
     return render_template('0104.comunidad.html')
-
 
 
 if __name__ == '__main__':
