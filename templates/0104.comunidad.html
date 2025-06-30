@@ -19,10 +19,10 @@
         </div>
         <nav class="navbar">
             <ul>
-                <li><a href="0101.index.html">Inicio</a></li>
-                <li><a href="0102.informacion.html">Información</a></li>
-                <li><a href="0103.descarga.html">Descargar</a></li>
-                <li><a href="0104.comunidad.html">Comunidad</a></li>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('informacion') }}">Información</a></li>
+                <li><a href="{{ url_for('descargar') }}">Descargar</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
             </ul>
         </nav>
     </header>
@@ -53,16 +53,21 @@
     <label for="carrera">Carrera:</label>
     <select id="carrera" name="carrera" required>
       <option value="">Seleccioná una opción</option>
-      <option value="ingenieria">Programacion</option>
-      <option value="sistemas">Sistemas</option>
-      <option value="mecanica">Mecánica</option>
+      <option value="ingenieria">Ingeniería</option>
+      <option value="salud">Ciencias de la salud</option>
+      <option value="sociales">Ciencias sociales</option>
+      <option value="humanidades">Humanidades</option>
+      <option value="economia">Economía y administración</option>
+      <option value="tecnologia">Tecnología / Informática</option>
+      <option value="educacion">Educación</option>
+      <option value="arte">Arte y diseño</option>
     </select>
 
     <label for="archivo">Subí tu apunte (PDF):</label>
     <input type="file" id="archivo" name="archivo" accept=".pdf" required>
 
-    <label for="comentario">Comentario:</label>
-    <textarea id="comentario" name="comentario" rows="4" placeholder="Opcional..."></textarea>
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" name="descripcion" rows="4" placeholder="Opcional..."></textarea>
 
     <!-- Checkbox con estilo switch -->
     <div class="checkbox-container">

@@ -20,10 +20,10 @@
         </div>
         <nav class="navbar">
             <ul>
-                <li><a href="0101.index.html">Inicio</a></li>
-                <li><a href="0102.informacion.html">Información</a></li>
-                <li><a href="0103.descarga.html">Descargar</a></li>
-                <li><a href="0104.comunidad.html">Comunidad</a></li>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('informacion') }}">Información</a></li>
+                <li><a href="{{ url_for('descargar') }}">Descargar</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
             </ul>
         </nav>
     </header>
@@ -42,8 +42,8 @@
                 <img src="/static/img/information.png" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Información</h5>
-                  <p class="card-text">En Learning Hub, brindamos información detallada sobre carreras y universidades en la provincia de Santa Fe, ayudando a los estudiantes a tomar decisiones informadas sobre su futuro académico.</p>
-                  <a href="0102.informacion.html" class="btn btn-primary">Vamos!</a>
+                  <p class="card-text">En Learning Hub, brindamos información sobre carreras y universidades en la provincia de Santa Fe, ayudando a los estudiantes a tomar decisiones informadas sobre su futuro académico.</p>
+                  <a href="{{ url_for('informacion') }}" class="btn btn-primary">Vamos!</a>
                 </div>
             </div>
             <div class="card efecto_cards" style="width: 18rem;">
@@ -51,7 +51,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Descargar</h5>
                   <p class="card-text">En Learning Hub, ofrecemos plantillas descargables para organizar horarios, gestionar ficheros, estructurar hojas y diseñar tablas, facilitando la planificación y el estudio de los estudiantes.</p>
-                  <a href="0103.descarga.html" class="btn btn-primary">Vamos!</a>
+                  <a href="{{ url_for('descargar') }}" class="btn btn-primary">Vamos!</a>
                 </div>
             </div>
             <div class="card efecto_cards" style="width: 18rem;">
@@ -59,7 +59,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Comunidad</h5>
                   <p class="card-text">En Learning Hub, te invitamos a unirte a nuestro campus virtual, donde podrás estudiar en grupos, colaborar con otros estudiantes y potenciar tu aprendizaje en un entorno dinámico y accesible.</p>
-                  <a href="0104.comunidad.html" class="btn btn-primary">Vamos!</a>
+                  <a href="{{ url_for('comunidad') }}" class="btn btn-primary">Vamos!</a>
                 </div>
             </div>
         </section>

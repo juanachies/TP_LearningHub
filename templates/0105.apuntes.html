@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Hub</title>
+    <link rel="stylesheet" href="/static/css/0205.apuntes.css"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FONT AWESOME PARA ÍCONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="titulo">
+            <img class="logo" src="/static/img/libros.png" alt="logo">
+            <h1>Learning Hub</h1>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('informacion') }}">Información</a></li>
+                <li><a href="{{ url_for('descargar') }}">Descargar</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="contenedor-cerebro" onclick="abrirWhatsapp()">
+            <div class="mensaje-ayuda">
+            <i class="fa-brands fa-whatsapp"></i> ¿Necesitás ayuda?
+        </div>
+            <img src="/static/img/cerebro.png" alt="Imagen de un cerebro animado" class="imagencerebro">
+        </div>
+
+
+        <h1>Apuntes de la comunidad</h1>
+
+        {% for carrera, apuntes in apuntes_por_carrera.items() %}
+        <h2 class="titulo_tarjetas">{{ carrera|capitalize }}</h2>
+        <section class="cards">
+            {% for apunte in apuntes %}
+            <div class="card efecto_cards" style="width: 18rem;">
+                <img src="/static/img/apuntes_descarga.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ apunte.apunte.replace('.pdf', '')|capitalize }}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Documento PDF</h6>
+                    <p class="card-text">Numero de usuario: {{apunte.id_usuario}} <br>
+                        Carrera: {{apunte.carrera}} <br>
+                        {{apunte.descripcion}}
+                    </p>
+                    <a href="{{apunte.ruta}}" download="{{apunte.apunte}}"><img src="/static/img/descargar.png" class="descargar" alt="Descargar"></a>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+        {% endfor %}
+        
+
+    </main>
+
+    <footer>
+        <section class="footer">
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3347.867662016196!2d-60.64381900000001!3d-32.9545032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab11d0eb49c3%3A0x11f1d3d54f950dd0!2sUniversidad%20Tecnol%C3%B3gica%20Nacional%20%7C%20Facultad%20Regional%20Rosario!5e0!3m2!1ses-419!2sar!4v1748489483402!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="quienes">
+                <h5>¿Quienes somos?</h5>
+                <p>
+                    Somos estudiantes de la Universidad Tecnológica Nacional que creamos esta página con un propósito claro: 
+                    ayudar a otros estudiantes. Sabemos lo que se necesita porque estamos en el mismo camino. 
+                    Learning Hub es una plataforma hecha por y para estudiantes, pensada para compartir herramientas, información y comunidad. <br>
+                    Queremos que cada estudiante pueda encontrar recursos útiles, organizarse mejor y sentirse acompañado en su recorrido académico. <br>
+                    Con ayuda todo es más fácil, sumate a nosotros!
+                </p>
+            </div>
+        </section>
+        <p class="copy">&copy; 2025 Comunidad de Estudiantes</p>
+    </footer>
+
+    <!-- Script para abrir WhatsApp -->
+    <script>
+        function abrirWhatsapp() {
+            const numero = "5493411234567"; // Reemplazá con tu número real
+            const mensaje = "Hola! Estoy navegando en Learning Hub y necesito ayuda 😊";
+            const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

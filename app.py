@@ -5,7 +5,6 @@
 
 from flask import Flask, request, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-import os
 
 app = Flask(__name__)
 
@@ -28,7 +27,10 @@ class Apunte(db.Model):
     id_usuario = db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=False)
     carrera = db.Column(db.String(30), nullable=False)
     apunte = db.Column(db.String(100), nullable=False)
-    comentario = db.Column(db.Text)
+    ruta = db.Column(db.String(100), nullable=False)
+    descripcion = db.Column(db.Text)
+
+    usuario = db.relationship('Usuario', backref='apuntes')
 
     def __repr__(self):
         return f"Apunte: {self.apunte}"
@@ -63,9 +65,9 @@ def comunidad():
         archivo = request.files['archivo']
         nombre_archivo = archivo.filename
 
-        comentario = request.form['comentario']
+        descripcion = request.form['descripcion']
     
-        archivo.save(f'uploads/{nombre_archivo}')
+        archivo.save(f'uploads/{carrera}/{nombre_archivo}')
     
         #Creo usuario y apunte
         usuario = Usuario.query.filter_by(email=email).first()
@@ -81,13 +83,29 @@ def comunidad():
         apunte = Apunte(
             id_usuario = usuario.id,
             carrera = carrera,
-            apunte = nombre_archivo,
-            comentario = comentario
+            apunte = nombre_archivo, 
+            ruta = f'/uploads/{carrera}/{nombre_archivo}', 
+            descripcion = descripcion
         )
         db.session.add(apunte)
         db.session.commit()
 
+        return redirect(url_for('apuntes'))
+
     return render_template('0104.comunidad.html')
+
+
+@app.route('/apuntes')
+def apuntes():
+    apuntes = Apunte.query.all()
+    apuntes_por_carrera = {}
+    for apunte in apuntes:
+        carrera = apunte.carrera
+        if carrera not in apuntes_por_carrera:
+            apuntes_por_carrera[carrera] = []
+        apuntes_por_carrera[carrera].append(apunte)
+
+    return render_template('0105.apuntes.html', apuntes_por_carrera=apuntes_por_carrera)
 
 
 if __name__ == '__main__':

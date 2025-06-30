@@ -1,0 +1,208 @@
+*{
+    margin: 0;  
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+:root {
+    --p-color:#D6D6D6;
+    --s-color: #F4D03F; 
+    --t-color:#131c46;
+    --background-color: #f0f3fa; /* Fondo claro */
+    --text-color: #f0f3fa; /* Texto */
+    --rosa-claaro: #C9A86A;
+}
+
+body {
+    overflow-x: hidden; /* Oculta el scroll horizontal */
+}
+
+/* Header --------------------------------------------------------------- */
+header{
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--t-color);
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left:0;
+    z-index: 600;
+}
+
+.titulo{
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    color: #f0f3fa
+}
+
+.titulo p{
+    padding-left: 15px;
+    font-size: 28px;
+}
+
+.logo{
+    width: 40px;
+    padding: 5px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0 50px 0 0;
+}
+
+.navbar li {
+    margin-left: 5px;
+}
+
+.navbar a {
+    box-shadow: inset 0px 0px 15px 3px #23395e;
+    background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+    background-color: #2e466e;
+    border-radius: 19px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 19px;
+    padding: 7px 17px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #263666;
+}
+
+.navbar a:hover {
+    background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+    background-color: #415989;
+}
+
+.navbar a:active {
+    position: relative;
+    top: 1px;
+}
+
+
+/* Main ------------------------------------------------------------*/
+main{
+    padding: 40px;
+    padding-top: 100px;
+    margin-bottom: 0;
+    background-color: var(--background-color);
+}
+
+main h2 {
+    text-align: center;
+    margin-top: 40px;
+}
+
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+    margin: 0 auto 40px auto; /* centrado horizontal */
+    max-width: 1100px; /* ancho máximo para que se vea bien centrado */
+}
+
+.card{
+    margin: 20px;
+}
+
+.efecto_cards{
+    transition: transform 0.3s ease-in-out; 
+}
+.efecto_cards:hover {
+    transform: scale(1.05);
+}
+
+.descargar{
+    width: 30px;
+}
+
+
+/* Cerebro con mensaje flotante ---------------------------------------- */
+.contenedor-cerebro {
+    position: fixed;
+    right: 30px;
+    bottom: 5px;
+    z-index: 1000;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; /* IMPORTANTE */
+    align-items: center;     /* Centra el texto con respecto al cerebro */
+}
+
+.mensaje-ayuda {
+    margin-bottom: -20px; /* Espacio entre mensaje y cerebro */
+    background-color: #25D366;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.imagencerebro {
+    width: 180px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.imagencerebro:hover {
+    transform: scale(1.1);
+}
+
+
+
+/* Footer --------------------------------------------------------------- */
+footer{
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 20px;
+    background-color: var(--t-color);
+    color: white;
+    padding-right: 100px;
+    padding-left: 100px;
+    text-align: center;
+}
+
+.footer{
+    display: flex;
+}
+
+.quienes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; 
+    margin-left: 30px;
+    height: 250px;
+    text-align: left;
+}
+
+.copy{
+    margin: 40px;
+    margin-bottom: 0px;
+}
+
+.map{
+    display: flex;
+    align-items:initial;
+    width: 300px;
+    height: 250px;
+}
+
+

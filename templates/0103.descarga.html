@@ -20,10 +20,10 @@
         </div>
         <nav class="navbar">
             <ul>
-                <li><a href="0101.index.html">Inicio</a></li>
-                <li><a href="0102.informacion.html">Información</a></li>
-                <li><a href="0103.descarga.html">Descargar</a></li>
-                <li><a href="0104.comunidad.html">Comunidad</a></li>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('informacion') }}">Información</a></li>
+                <li><a href="{{ url_for('descargar') }}">Descargar</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
             </ul>
         </nav>
     </header>
@@ -40,12 +40,12 @@
       
         <section class="cards">
             <div class="card efecto_cards" style="width: 18rem;">
-                <img src="/static/img/descarga.png" class="card-img-top" alt="...">
+                <img src="/static/img/descargar1.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     
                     <p style="text-align: center;" class="card-text">Calendario mensual</p>
                    <div style="text-align: center;">
-                         <a href="plantillas/blank_monthly_calendar.png" download="blank_monthly_calendar" style="text-align: center;" class="boton-descarga">
+                         <a href="/static/plantillas/blank_monthly_calendar.png" download="Calendario mensual" style="text-align: center;" class="boton-descarga">
                         Descargar plantilla
                     </a>
                    </div>
@@ -54,12 +54,12 @@
             </div>
 
             <div class="card efecto_cards" style="width: 18rem;">
-                <img src="/static/img/descarga.png"card-img-top" alt="...">
+                <img src="/static/img/descargar2.png" class="card-img-top" alt="...">
                 <div class="card-body">
                    
                     <p style="text-align: center;" class="card-text">Hoja rayada</p>
                     <div style="text-align: center;" >
-                        <a href="plantillas/lined_paper.png" download="lined_paper" style="text-align: center;" class="boton-descarga">
+                        <a href="/static/plantillas/lined_paper.png" download="Hoja rayada" style="text-align: center;" class="boton-descarga">
                         Descargar plantilla
                         </a>
                     </div>
@@ -68,12 +68,12 @@
             </div>
 
             <div class="card efecto_cards" style="width: 18rem;">
-                <img src="/static/img/descarga.png" class="card-img-top" alt="...">
+                <img src="/static/img/descargar3.png" class="card-img-top" alt="...">
                 <div class="card-body">
                    
-                    <p style="text-align: center;"class="card-text">Organizador semnanal</p>
+                    <p style="text-align: center;"class="card-text">Organizador semanal</p>
                     <div style="text-align: center;">
-                        <a href="plantillas/weekly_planner.png" download="weekly_planner" style="text-align: center;" class="boton-descarga">
+                        <a href="/static/plantillas/weekly_planner.png" download="Organizador semanal" style="text-align: center;" class="boton-descarga">
                         Descargar plantilla
                       </a>
                     </div>
@@ -86,16 +86,84 @@
 
         <section class="cards">
             <div class="card efecto_cards" style="width: 18rem;">
-                <img src="/static/img/descarga.png" class="card-img-top" alt="...">
+                <img src="/static/img/descargar4.png" class="card-img-top" alt="...">
                 <div class="card-body">
                    
                     <p style="text-align: center;" class="card-text">Planificador semanal</p>
                     <div style="text-align: center;">
-                        <a href="plantillas/weekly_schedule_detailed.png" download="weekly_schedule_detailed" style="text-align: center;" class="boton-descarga">
+                        <a href="/static/plantillas/weekly_schedule_detailed.png" download="Planificador semanal" style="text-align: center;" class="boton-descarga">
                         Descargar plantilla
                         </a>
                     </div>
                     
+                </div>
+            </div>
+
+            <div class="card efecto_cards" style="width: 18rem;">
+                <img src="/static/img/descargar5.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                   
+                    <p style="text-align: center;" class="card-text">Hoja cuadriculada</p>
+                    <div style="text-align: center;">
+                        <a href="/static/plantillas/hojaCuadriculada.jpg" download="Hoja cuadriculada" style="text-align: center;" class="boton-descarga">
+                        Descargar plantilla
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="card efecto_cards" style="width: 18rem;">
+                <img src="/static/img/descargar6.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                   
+                    <p style="text-align: center;" class="card-text">Información de clases</p>
+                    <div style="text-align: center;">
+                        <a href="/static/plantillas/informacionClases.jpg" download="Información de clases" style="text-align: center;" class="boton-descarga">
+                        Descargar plantilla
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cards">
+            <div class="card efecto_cards" style="width: 18rem;">
+                <img src="/static/img/descargar7.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                   
+                    <p style="text-align: center;" class="card-text">Planificador de examenes</p>
+                    <div style="text-align: center;">
+                        <a href="/static/plantillas/organizadorExamenes.jpg" download="organizador de examenes" style="text-align: center;" class="boton-descarga">
+                        Descargar plantilla
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card efecto_cards" style="width: 18rem;">
+                <img src="/static/img/descargar9.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                   
+                    <p style="text-align: center;" class="card-text">Organizador de tareas</p>
+                    <div style="text-align: center;">
+                        <a href="/static/plantillas/planificadorTareas.jpg" download="Organizador de tareas" style="text-align: center;" class="boton-descarga">
+                        Descargar plantilla
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card efecto_cards" style="width: 18rem;">
+                <img src="/static/img/descargar8.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                   
+                    <p style="text-align: center;" class="card-text">Planner universitario anual</p>
+                    <div style="text-align: center;">
+                        <a href="/static/plantillas/Planner universitario 2024 Gratis.pdf" download="Planner universitario 2024" style="text-align: center;" class="boton-descarga">
+                        Descargar plantilla
+                        </a>
+                    </div>
                 </div>
             </div>
 

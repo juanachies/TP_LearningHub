@@ -20,10 +20,10 @@
         </div>
         <nav class="navbar">
             <ul>
-                <li><a href="0101.index.html">Inicio</a></li>
-                <li><a href="0102.informacion.html">Información</a></li>
-                <li><a href="0103.descarga.html">Descargar</a></li>
-                <li><a href="0104.comunidad.html">Comunidad</a></li>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('informacion') }}">Información</a></li>
+                <li><a href="{{ url_for('descargar') }}">Descargar</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
             </ul>
         </nav>
     </header>
@@ -35,7 +35,7 @@
             </div>
                 <img src="/static/img/cerebro.png" alt="Imagen de un cerebro animado" class="imagencerebro">
             </div>
-       <body>
+            
             <h2>Universidades de la Provincia de Santa Fe</h2>
             <section>
                 <h3>Universidades Públicas</h3>
