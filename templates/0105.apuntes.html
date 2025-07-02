@@ -18,6 +18,9 @@
             <img class="logo" src="/static/img/libros.png" alt="logo">
             <h1>Learning Hub</h1>
         </div>
+        <button class="hamburguesa" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
         <nav class="navbar">
             <ul>
                 <li><a href="{{ url_for('index') }}">Inicio</a></li>
@@ -87,6 +90,12 @@
             const mensaje = "Hola! Estoy navegando en Learning Hub y necesito ayuda 😊";
             const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
             window.open(url, '_blank');
+        }
+
+        // Mostrar/ocultar el menú al hacer clic en el ícono hamburguesa
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar ul');
+            navbar.classList.toggle('mostrar');
         }
     </script>
 </body>
