@@ -519,16 +519,3 @@ footer{
     margin-bottom: 20px;
   }
 }
-
-/* Breakpoint 3: PC (≥1024px) - solo aseguramos comportamiento normal */
-@media (min-width: 1024px) {
-  .cards {
-    justify-content: space-between;
-    padding-left: 150px;
-    padding-right: 150px;
-  }
-
-  .card {
-    width: 30% !important;
-  }
-}
